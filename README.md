@@ -8,14 +8,15 @@
 
 ```sh
 # Download dnsmasq
-curl -Lo- https://github.com/gek64/dnsmasq-static/releases/latest/download/dnsmasq.gz | gzip > /usr/local/bin/dnsmasq
+curl -Lo- https://github.com/gek64/dnsmasq-static/releases/latest/download/dnsmasq.gz | gzip -d > /usr/local/bin/dnsmasq
 chmod +x /usr/local/bin/dnsmasq
 
 # Create a configuration example
+mkdir -p /usr/local/etc/dnsmasq
 cat << "EOF" >/usr/local/etc/dnsmasq/dnsmasq.conf
 port=53
 
-server=1.1.1.1
+server=223.5.5.5
 server=1.0.0.1
 
 address=/local.internal/127.0.0.1
